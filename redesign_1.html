@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>循环经济透明度重构架构</title>
+  <!-- 引入 Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入 Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-screen bg-slate-100 p-4 md:p-8 font-sans text-slate-800">
+  
+  <!-- 头部 -->
+  <div class="mb-8">
+    <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-2">循环经济透明度重构架构 (Redesign Framework)</h1>
+    <p class="text-slate-500 text-lg">从表象循环到实质性伦理监测的全链路数据披露体系</p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    
+    <!-- 左侧/主列：四大透明度层级 (The 4 Layers) -->
+    <div class="lg:col-span-2 space-y-6">
+      
+      <!-- Layer 1 -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -z-10"></div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="p-3 bg-emerald-100 text-emerald-600 rounded-lg">
+            <i data-lucide="recycle" width="24" height="24"></i>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-slate-800">Layer 1 — 物质流量透明</h2>
+            <p class="text-sm text-slate-500">Material Flow Transparency</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-sm font-semibold text-slate-700 mb-2 border-b pb-1">基础必披指标</h3>
+            <ul class="text-sm space-y-2 text-slate-600">
+              <li>• 年度回收总件数 & 总重量(吨)</li>
+              <li>• 按品类细分数据</li>
+              <li>• 再售比例 vs 报废比例</li>
+              <li>• 再售销售额占总销售额比例</li>
+            </ul>
+          </div>
+          <div class="bg-emerald-50 rounded-xl p-4 border border-emerald-100">
+            <h3 class="text-sm font-bold text-emerald-800 mb-2">核心指标：绝对替代指数 (ADI)</h3>
+            <div class="bg-white p-2 rounded text-center mb-2 font-mono text-sm border border-emerald-200 text-emerald-700">
+              ADI = 再售件数 ÷ 同品类新生产件数
+            </div>
+            <div class="text-xs space-y-1">
+              <p><span class="font-bold text-red-500">&lt; 0.1</span> : 说明再售只是边缘行为</p>
+              <p><span class="font-bold text-green-600">&gt;= 0.3</span> : 说明循环具有实质替代性</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layer 2 -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-10"></div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="p-3 bg-blue-100 text-blue-600 rounded-lg">
+            <i data-lucide="factory" width="24" height="24"></i>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-slate-800">Layer 2 — 绝对减量与生产影响</h2>
+            <p class="text-sm text-slate-500">Strong Circularity Proof</p>
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row gap-6">
+          <div class="flex-1 space-y-3">
+            <div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-slate-100">
+              <span class="text-sm font-medium">新生产总件数同比变化</span>
+              <i data-lucide="trending-down" width="18" height="18" class="text-green-500"></i>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-slate-100">
+              <span class="text-sm font-medium">原材料采购总量变化</span>
+              <i data-lucide="trending-down" width="18" height="18" class="text-green-500"></i>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-slate-100">
+              <span class="text-sm font-medium">单位产品材料强度变化</span>
+              <i data-lucide="trending-down" width="18" height="18" class="text-green-500"></i>
+            </div>
+          </div>
+          <div class="flex-1 bg-blue-50 p-4 rounded-xl border border-blue-100 flex flex-col justify-center">
+            <h3 class="font-bold text-blue-800 mb-2">核心拷问 (Total Material Throughput)</h3>
+            <p class="text-sm text-blue-700 font-medium">
+              回收是否导致了「绝对新生产下降」？还是生产总量仍在继续增长？
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layer 3 -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-slate-100 rounded-bl-full -z-10"></div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="p-3 bg-slate-200 text-slate-700 rounded-lg">
+            <i data-lucide="cloud" width="24" height="24"></i>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-slate-800">Layer 3 — 生命周期碳核算</h2>
+            <p class="text-sm text-slate-500">Full LCA Transparency</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-sm font-semibold text-slate-700 mb-3 border-b pb-1">公开指标清单</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">Scope 1</span>
+              <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">Scope 2</span>
+              <span class="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded font-bold border border-orange-200">Scope 3 (必含消费者运输)</span>
+            </div>
+            <ul class="text-sm space-y-1 text-slate-600">
+              <li>• 新产品平均碳强度 (kgCO₂e/件)</li>
+              <li>• 再售产品碳强度</li>
+              <li>• 运输排放 & 翻新排放</li>
+            </ul>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+            <h3 class="text-sm font-bold text-slate-800 mb-2">净减排计算公式</h3>
+            <div class="bg-white p-3 rounded text-center font-mono text-sm border border-slate-300 text-slate-700 font-medium">
+              净减排 = 避免生产排放<br/> - (回收运输 + 翻新排放)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layer 4 -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-purple-50 rounded-bl-full -z-10"></div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="p-3 bg-purple-100 text-purple-600 rounded-lg">
+            <i data-lucide="scale" width="24" height="24"></i>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-slate-800">Layer 4 — 公平性与参与结构</h2>
+            <p class="text-sm text-slate-500">Justice Dashboard (Industry Void)</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-sm font-semibold text-slate-700 mb-2 border-b pb-1">结构性排除监测</h3>
+            <ul class="text-sm space-y-2 text-slate-600">
+              <li>• 回收参与的邮编/地区分布</li>
+              <li>• 低收入区域参与率</li>
+              <li>• 无车家庭参与比例</li>
+              <li>• 上门回收比例</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold text-slate-700 mb-2 border-b pb-1">拒收原因统计透视</h3>
+            <div class="space-y-3 mt-3">
+              <div>
+                <div class="flex justify-between text-xs mb-1"><span>未组装</span><span class="font-bold">35%</span></div>
+                <div class="w-full bg-slate-100 rounded-full h-2"><div class="bg-purple-500 h-2 rounded-full" style="width: 35%"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs mb-1"><span>运输损坏</span><span class="font-bold">18%</span></div>
+                <div class="w-full bg-slate-100 rounded-full h-2"><div class="bg-purple-400 h-2 rounded-full" style="width: 18%"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs mb-1"><span>超出年限</span><span class="font-bold">12%</span></div>
+                <div class="w-full bg-slate-100 rounded-full h-2"><div class="bg-purple-300 h-2 rounded-full" style="width: 12%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右侧列：支持模块与风险控制 -->
+    <div class="space-y-6">
+      
+      <!-- Rebound 监测模块 -->
+      <div class="bg-white rounded-2xl shadow-sm border-2 border-amber-400 p-6 relative">
+        <div class="flex items-center gap-2 mb-4">
+          <i data-lucide="alert-triangle" width="24" height="24" class="text-amber-500"></i>
+          <h2 class="text-lg font-bold text-slate-800">Rebound 监测机制</h2>
+        </div>
+        <p class="text-xs text-slate-500 mb-4">循环经济最大伦理风险：以回收之名鼓励消费</p>
+        
+        <div class="bg-amber-50 p-3 rounded-lg border border-amber-200 mb-4">
+          <h3 class="text-sm font-bold text-amber-800 mb-2">预警触发条件</h3>
+          <p class="text-sm text-amber-900 font-mono bg-white p-2 rounded">当参与回购用户的消费增加 &gt; 20% 时触发</p>
+        </div>
+
+        <div class="space-y-4">
+          <div>
+            <h3 class="text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">监测指标</h3>
+            <ul class="text-sm space-y-1 text-slate-600">
+              <li>• 6个月内再购买率</li>
+              <li>• 平均客单价变化</li>
+              <li>• 高频回购+高频购买比例</li>
+            </ul>
+          </div>
+          <div class="border-t pt-3">
+            <h3 class="text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">抑制机制 (Intervention)</h3>
+            <div class="flex gap-2">
+              <span class="px-2 py-1 bg-red-100 text-red-700 text-xs rounded font-medium">设置回购次数上限</span>
+              <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded font-medium">非消费型奖励选项</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 公开机制 -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+        <div class="flex items-center gap-2 mb-4">
+          <i data-lucide="shield-check" width="24" height="24" class="text-indigo-500"></i>
+          <h2 class="text-lg font-bold text-slate-800">公开与治理 (Governance)</h2>
+        </div>
+        <ul class="space-y-3 text-sm">
+          <li class="flex gap-3">
+            <div class="mt-0.5"><i data-lucide="file-text" width="16" height="16" class="text-indigo-400"></i></div>
+            <div>
+              <span class="font-semibold text-slate-700 block">披露频率</span>
+              <span class="text-slate-500 text-xs">季度核心指标更新，年度完整报告，店内实时数据屏</span>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <div class="mt-0.5"><i data-lucide="shield-check" width="16" height="16" class="text-indigo-400"></i></div>
+            <div>
+              <span class="font-semibold text-slate-700 block">第三方审计</span>
+              <span class="text-slate-500 text-xs">ISO 14064 碳审计，第三方 LCA 审核，独立循环监督委员会(含NGO)</span>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <div class="mt-0.5"><i data-lucide="unlock" width="16" height="16" class="text-indigo-400"></i></div>
+            <div>
+              <span class="font-semibold text-slate-700 block">开放数据</span>
+              <span class="text-slate-500 text-xs">提供 CSV 下载，公布计算方法与假设参数</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 技术实现结构 -->
+      <div class="bg-slate-800 rounded-2xl shadow-sm p-6 text-white">
+        <div class="flex items-center gap-2 mb-4">
+          <i data-lucide="database" width="24" height="24" class="text-blue-400"></i>
+          <h2 class="text-lg font-bold">技术与数据实现</h2>
+        </div>
+        <div class="bg-slate-700/50 p-3 rounded-lg mb-4 text-sm">
+          <div class="font-mono text-blue-300 mb-1">Product Circular ID</div>
+          <p class="text-slate-300 text-xs">每个回收产品生成的唯一追踪标识，贯穿全生命周期。</p>
+        </div>
+        <div class="flex items-center justify-between text-xs text-slate-300 px-2">
+          <div class="text-center">POS<br/>销售系统</div>
+          <i data-lucide="arrow-right" width="14" height="14" class="text-slate-500"></i>
+          <div class="text-center">回收<br/>登记系统</div>
+          <i data-lucide="arrow-right" width="14" height="14" class="text-slate-500"></i>
+          <div class="text-center">物流系统<br/>碳排库</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 底部：伦理改进效果矩阵 -->
+  <div class="mt-6 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+    <div class="bg-slate-50 p-4 border-b border-slate-200">
+      <h2 class="text-lg font-bold text-slate-800">系统性伦理改进矩阵</h2>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-left text-sm">
+        <thead class="bg-slate-50 text-slate-600">
+          <tr>
+            <th class="px-6 py-3 font-semibold">伦理问题 (Ethical Issue)</th>
+            <th class="px-6 py-3 font-semibold">当前行业风险 (Current Risk)</th>
+            <th class="px-6 py-3 font-semibold">本方案改进点 (Proposed Improvement)</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 font-medium text-slate-800">Weak Circularity</td>
+            <td class="px-6 py-4 text-slate-600">只强调回收效率，避谈总产量的增加</td>
+            <td class="px-6 py-4 text-emerald-600 font-medium bg-emerald-50/30">强制披露「绝对减量」与 ADI 指数</td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 font-medium text-slate-800">Rebound Effect</td>
+            <td class="px-6 py-4 text-slate-600">以“环保”之名鼓励消费者购买更多新产品</td>
+            <td class="px-6 py-4 text-amber-600 font-medium bg-amber-50/30">建立消费增长监测与“抑制机制”</td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 font-medium text-slate-800">EPR 责任转移</td>
+            <td class="px-6 py-4 text-slate-600">将回收责任与排放推给消费者(Scope 3)</td>
+            <td class="px-6 py-4 text-blue-600 font-medium bg-blue-50/30">完整 LCA 披露，包含消费者运输排放</td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 font-medium text-slate-800">Justice 结构性排除</td>
+            <td class="px-6 py-4 text-slate-600">回收服务仅偏向富裕、有车或特定区域群体</td>
+            <td class="px-6 py-4 text-purple-600 font-medium bg-purple-50/30">公布参与结构、邮编分布与拒收原因</td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 font-medium text-slate-800">Greenwashing</td>
+            <td class="px-6 py-4 text-slate-600">使用模糊的宣传词汇（如“100%可回收”）</td>
+            <td class="px-6 py-4 text-slate-700 font-medium">提供可审计数据、第三方监督与开源算法</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <script>
+    // 初始化 Lucide 图标
+    lucide.createIcons();
+  </script>
+</body>
+</html>

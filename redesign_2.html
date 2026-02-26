@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>木材采伐总量上限与再生林承诺机制</title>
+  <!-- 引入 Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入 Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#22c55e',
+              700: '#15803d',
+              800: '#166534',
+              900: '#14532d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="min-h-screen bg-stone-50 p-4 md:p-8 font-sans text-stone-800">
+  
+  <!-- 头部 -->
+  <div class="mb-8">
+    <div class="flex items-center gap-3 mb-2">
+      <div class="p-2 bg-forest-100 text-forest-700 rounded-lg">
+        <i data-lucide="trees" width="28" height="28"></i>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold text-stone-900">木材采伐总量上限 & 再生林承诺机制</h1>
+    </div>
+    <p class="text-stone-500 text-lg ml-12">Timber Extraction Cap & Regenerative Forestry Commitment</p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    
+    <!-- 左侧/主列：核心机制 -->
+    <div class="lg:col-span-2 space-y-6">
+      
+      <!-- 伦理问题定位警告 -->
+      <div class="bg-red-50 rounded-2xl border border-red-200 p-5 flex gap-4 items-start">
+        <i data-lucide="alert-circle" class="text-red-500 shrink-0 mt-1" width="24" height="24"></i>
+        <div>
+          <h3 class="font-bold text-red-800 mb-1">核心伦理拷问 (The Growth Paradox)</h3>
+          <p class="text-sm text-red-700">当前末端循环并未承诺“绝对木材减量”。循环究竟是减少了总木材开采，还是仅仅改善了效率，同时掩盖并维持了巨头不断扩张的增长逻辑？</p>
+        </div>
+      </div>
+
+      <!-- 机制 1 & 2: 上限与 TDR -->
+      <div class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-40 h-40 bg-forest-50 rounded-bl-full -z-10"></div>
+        <div class="flex items-center gap-3 mb-6">
+          <div class="p-3 bg-forest-100 text-forest-700 rounded-lg">
+            <i data-lucide="arrow-down-to-line" width="24" height="24"></i>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-stone-800">绝对总量上限与木材替代指数</h2>
+            <p class="text-sm text-stone-500">Absolute Cap & Timber Displacement Ratio (TDR)</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-4">
+            <div class="bg-stone-50 p-4 rounded-xl border border-stone-200">
+              <h3 class="text-sm font-bold text-stone-700 mb-2">2030 绝对上限承诺</h3>
+              <p class="text-sm text-stone-600">原生木材使用总量（总立方米 m³）必须相对 2025 基准年实现 <span class="font-bold text-forest-700">绝对减少 X%</span>，而非单位产品强度的下降。</p>
+            </div>
+            <div>
+              <h3 class="text-sm font-semibold text-stone-700 mb-2 border-b pb-1">原生木材逐步替代计划</h3>
+              <ul class="text-sm space-y-2 text-stone-600">
+                <li class="flex items-center gap-2"><i data-lucide="check-circle-2" width="16" height="16" class="text-forest-500"></i> 提高回收木材比例</li>
+                <li class="flex items-center gap-2"><i data-lucide="check-circle-2" width="16" height="16" class="text-forest-500"></i> 增加工程木材与再生材料应用</li>
+                <li class="flex items-center gap-2"><i data-lucide="check-circle-2" width="16" height="16" class="text-forest-500"></i> 提高设计耐久度（系统性延长产品寿命）</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="bg-forest-50 rounded-xl p-5 border border-forest-100 flex flex-col justify-center">
+            <h3 class="text-sm font-bold text-forest-800 mb-3 text-center">核心指标：Timber Displacement Ratio</h3>
+            <div class="bg-white p-3 rounded-lg text-center mb-4 font-mono text-sm border border-forest-200 text-forest-700 shadow-sm">
+              TDR = 二手再售木材体积 <br/><span class="text-stone-400">÷</span><br/> 新生产木材体积
+            </div>
+            <div class="grid grid-cols-2 gap-2 text-center text-xs">
+              <div class="bg-white p-2 rounded border border-red-100">
+                <span class="block font-bold text-red-500 text-sm">&lt; 0.2</span>
+                <span class="text-stone-500">循环不足以替代新采伐</span>
+              </div>
+              <div class="bg-white p-2 rounded border border-forest-200">
+                <span class="block font-bold text-forest-600 text-sm">≥ 0.5</span>
+                <span class="text-stone-500">2030年 战略目标底线</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 机制 3: 再生林投资与采伐对冲 -->
+      <div class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 relative overflow-hidden">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="p-3 bg-amber-100 text-amber-700 rounded-lg">
+            <i data-lucide="leaf" width="24" height="24"></i>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-stone-800">再生林投资与采伐对冲机制</h2>
+            <p class="text-sm text-stone-500">Regenerative Forestry & Hedging</p>
+          </div>
+        </div>
+        
+        <div class="flex flex-col md:flex-row items-center justify-between bg-amber-50 p-6 rounded-xl border border-amber-100 gap-4">
+          <div class="text-center flex-1">
+            <div class="text-amber-800 font-bold mb-1">每采伐原生木材</div>
+            <div class="text-3xl font-black text-amber-600 font-mono">1 m³</div>
+          </div>
+          <i data-lucide="arrow-right" width="32" height="32" class="text-amber-300 hidden md:block"></i>
+          <div class="text-center flex-1 bg-white p-4 rounded-lg shadow-sm border border-amber-200">
+            <div class="text-forest-800 font-bold mb-1">强制投资恢复生态林</div>
+            <div class="text-3xl font-black text-forest-600 font-mono">≥ 1.2 m³</div>
+          </div>
+        </div>
+        
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="flex items-start gap-2 text-stone-600">
+            <i data-lucide="x-octagon" width="18" height="18" class="text-red-500 shrink-0 mt-0.5"></i>
+            <span>不允许单一种植园 (Monoculture plantation) 作为替代</span>
+          </div>
+          <div class="flex items-start gap-2 text-stone-600">
+            <i data-lucide="award" width="18" height="18" class="text-amber-500 shrink-0 mt-0.5"></i>
+            <span>需第三方认证 (FSC + 额外生态恢复标准)</span>
+          </div>
+          <div class="flex items-start gap-2 text-stone-600">
+            <i data-lucide="arrow-up-right" width="18" height="18" class="text-forest-500 shrink-0 mt-0.5"></i>
+            <span class="font-medium">战略重塑：从“补偿种树”全面升级为“生态系统恢复”</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 右侧列：行星边界、数据披露与经济影响 -->
+    <div class="space-y-6">
+      
+      <!-- 行星边界机制 -->
+      <div class="bg-teal-900 rounded-2xl shadow-sm p-6 text-teal-50 relative overflow-hidden">
+        <div class="absolute -right-6 -top-6 opacity-20">
+          <i data-lucide="globe-2" width="120" height="120"></i>
+        </div>
+        <div class="flex items-center gap-2 mb-4 relative z-10">
+          <i data-lucide="globe" width="24" height="24" class="text-teal-300"></i>
+          <h2 class="text-lg font-bold text-white">行星边界对齐机制</h2>
+        </div>
+        <p class="text-xs text-teal-200 mb-4 relative z-10">Planetary Boundary Alignment</p>
+        
+        <div class="bg-teal-800/50 p-4 rounded-lg border border-teal-700 mb-4 relative z-10 backdrop-blur-sm">
+          <h3 class="text-sm font-bold text-teal-100 mb-2">对齐全球容量</h3>
+          <p class="text-sm font-mono text-white mb-2 leading-relaxed">
+            "本年度木材使用量占全球可持续采伐总容量的 <span class="text-teal-300 font-bold bg-teal-950 px-1 rounded">X%</span>"
+          </p>
+        </div>
+
+        <ul class="text-sm space-y-2 text-teal-100/80 relative z-10">
+          <li class="flex items-center justify-between border-b border-teal-800 pb-1">
+            <span>全球森林碳汇能力对比</span> <i data-lucide="bar-chart-2" width="14" height="14"></i>
+          </li>
+          <li class="flex items-center justify-between border-b border-teal-800 pb-1">
+            <span>生物多样性指数影响</span> <i data-lucide="activity" width="14" height="14"></i>
+          </li>
+          <li class="flex items-center justify-between border-b border-teal-800 pb-1">
+            <span>森林退化率关联分析</span> <i data-lucide="trending-down" width="14" height="14"></i>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 数据公开披露 -->
+      <div class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6">
+        <div class="flex items-center gap-2 mb-4">
+          <i data-lucide="database" width="24" height="24" class="text-stone-500"></i>
+          <h2 class="text-lg font-bold text-stone-800">强制公开披露指标</h2>
+        </div>
+        <p class="text-xs text-stone-500 mb-3">与主循环数据公示系统完全整合</p>
+        <div class="space-y-2">
+          <div class="flex justify-between items-center text-sm p-2 bg-stone-50 rounded">
+            <span class="text-stone-700">年度木材采购总量</span>
+            <span class="font-mono font-medium text-stone-900">m³</span>
+          </div>
+          <div class="flex justify-between items-center text-sm p-2 bg-stone-50 rounded">
+            <span class="text-stone-700">原生 vs 回收木材占比</span>
+            <span class="font-mono font-medium text-stone-900">%</span>
+          </div>
+          <div class="flex justify-between items-center text-sm p-2 bg-stone-50 rounded">
+            <span class="text-stone-700">地理来源 (国家/地区)</span>
+            <i data-lucide="map-pin" width="16" height="16" class="text-stone-400"></i>
+          </div>
+          <div class="flex justify-between items-center text-sm p-2 bg-red-50 rounded text-red-700">
+            <span>高风险地区采购比例</span>
+            <span class="font-mono font-medium">%</span>
+          </div>
+          <div class="flex justify-between items-center text-sm p-2 bg-red-50 rounded text-red-700">
+            <span>森林退化风险评估结果</span>
+            <i data-lucide="file-warning" width="16" height="16"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- 潜在经济影响 -->
+      <div class="bg-stone-100 rounded-2xl shadow-sm border border-stone-200 p-6">
+        <h2 class="text-sm font-bold text-stone-800 uppercase tracking-wide mb-4">潜在经济影响分析</h2>
+        <div class="space-y-4">
+          <div>
+            <h3 class="text-xs font-bold text-stone-500 mb-2 flex items-center gap-1"><i data-lucide="clock" width="14" height="14"></i> 短期阵痛 (Short-term)</h3>
+            <ul class="text-sm space-y-1 text-stone-700">
+              <li>• 可能降低木制产品业务的增长速度</li>
+              <li>• 原材料获取与生态投资导致成本增加</li>
+            </ul>
+          </div>
+          <div class="border-t border-stone-200 pt-3">
+            <h3 class="text-xs font-bold text-forest-600 mb-2 flex items-center gap-1"><i data-lucide="trending-up" width="14" height="14"></i> 长期红利 (Long-term)</h3>
+            <ul class="text-sm space-y-1 text-stone-700">
+              <li>• 极大地提高品牌在可持续领域的真实可信度</li>
+              <li>• 降低对不可再生自然资源的依赖风险</li>
+              <li>• 减少气候变化与地缘政治带来的供应链波动</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 底部：伦理改善分析矩阵 -->
+  <div class="mt-6 bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden">
+    <div class="bg-stone-800 p-4 border-b border-stone-700 flex items-center gap-2">
+      <i data-lucide="scale" width="20" height="20" class="text-stone-300"></i>
+      <h2 class="text-lg font-bold text-white">深层伦理改善分析矩阵 (Ethical Improvement Matrix)</h2>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-left text-sm">
+        <thead class="bg-stone-50 text-stone-600 border-b border-stone-200">
+          <tr>
+            <th class="px-6 py-4 font-semibold">伦理批评视角 (Ethical Lens)</th>
+            <th class="px-6 py-4 font-semibold">当前行业风险 (Current Risk)</th>
+            <th class="px-6 py-4 font-semibold text-forest-700">本 Redesign 方案改善点 (Improvement)</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-stone-100">
+          <tr class="hover:bg-stone-50 transition-colors">
+            <td class="px-6 py-4 font-medium text-stone-800">Weak Circularity<br/><span class="text-xs text-stone-400">弱循环</span></td>
+            <td class="px-6 py-4 text-stone-600">只做系统效率改进，未触及开采规模</td>
+            <td class="px-6 py-4 text-forest-700 font-medium bg-forest-50/50">设定并公开实现绝对减量 (Absolute Reduction)</td>
+          </tr>
+          <tr class="hover:bg-stone-50 transition-colors">
+            <td class="px-6 py-4 font-medium text-stone-800">Degrowth Critique<br/><span class="text-xs text-stone-400">去增长批判</span></td>
+            <td class="px-6 py-4 text-stone-600">商业模式仍深刻依赖物质规模增长</td>
+            <td class="px-6 py-4 text-amber-700 font-medium bg-amber-50/50">引入强制性物质开采上限 (Material Cap)</td>
+          </tr>
+          <tr class="hover:bg-stone-50 transition-colors">
+            <td class="px-6 py-4 font-medium text-stone-800">Intergenerational Justice<br/><span class="text-xs text-stone-400">代际公平</span></td>
+            <td class="px-6 py-4 text-stone-600">让未来代际承担不可逆的资源损耗代价</td>
+            <td class="px-6 py-4 text-stone-700 font-medium bg-stone-100/50">设定采伐天花板，且实施 1:1.2 生态对冲恢复</td>
+          </tr>
+          <tr class="hover:bg-stone-50 transition-colors">
+            <td class="px-6 py-4 font-medium text-stone-800">Planetary Boundaries<br/><span class="text-xs text-stone-400">行星边界</span></td>
+            <td class="px-6 py-4 text-stone-600">无生态边界意识，将自然视为无限资源池</td>
+            <td class="px-6 py-4 text-teal-700 font-medium bg-teal-50/50">强制数据与全球生态可持续采伐容量对齐</td>
+          </tr>
+          <tr class="hover:bg-stone-50 transition-colors">
+            <td class="px-6 py-4 font-medium text-stone-800">Symbolic Circularity<br/><span class="text-xs text-stone-400">象征性循环</span></td>
+            <td class="px-6 py-4 text-stone-600">将注意力集中在消费者末端回收（治标）</td>
+            <td class="px-6 py-4 text-forest-700 font-medium bg-forest-50/50">直击痛点，进行上游供应链结构化改革（治本）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <script>
+    // 初始化 Lucide 图标
+    lucide.createIcons();
+  </script>
+</body>
+</html>
