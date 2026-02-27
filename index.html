@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IKEA Buy Back 利益相关者地图</title>
-    <!-- 引入 Tailwind CSS 进行快速样式布局 -->
+    <title>IKEA Buy Back Stakeholder Map</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 引入 Lucide 图标库 -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* 自定义一些平滑过渡动画 */
+        /* Custom smooth transition */
         .node-transition {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        /* 淡入动画 */
+        /* Fade in animation */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -21,7 +19,7 @@
         .animate-fade-in {
             animation: fadeIn 0.4s ease-out forwards;
         }
-        /* 隐藏滚动条让右侧更美观 */
+        /* Hide scrollbar for cleaner look */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -35,160 +33,147 @@
 
     <div class="h-full flex flex-col md:flex-row">
         
-        <!-- 左侧区域：视觉地图 (Canvas) -->
-        <!-- 调整了对齐方式为 justify-between，并增加了滚动支持以防小屏幕挤压 -->
         <div class="w-full md:w-3/5 h-[55vh] md:h-full py-6 px-4 md:p-8 flex flex-col items-center justify-between overflow-y-auto no-scrollbar border-b md:border-b-0 md:border-r border-slate-200 bg-white relative">
             
-            <!-- 顶部标题：增加了磨砂背景和独立层级，防止被节点遮挡 -->
             <div class="z-30 text-center flex-shrink-0 bg-white/90 backdrop-blur-sm px-6 py-2 rounded-2xl">
-                <h1 class="text-xl md:text-2xl font-bold text-slate-800 mb-1">IKEA Buy Back 项目</h1>
-                <p class="text-slate-500 text-xs md:text-sm">利益相关者地图 (Stakeholder Map)</p>
+                <h1 class="text-xl md:text-2xl font-bold text-slate-800 mb-1">IKEA Buy Back Project</h1>
+                <p class="text-slate-500 text-xs md:text-sm">Stakeholder Map</p>
             </div>
             
-            <!-- 地图容器：适度缩小了相对宽度，给上下留出空间 -->
             <div class="relative w-[90%] md:w-[85%] max-w-[600px] aspect-square flex-shrink-0 my-6" id="map-container">
                 
-                <!-- 背景同心圆 (Rings) -->
                 <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <!-- 中心节点 (稍微缩小一点，给第一环让出空间) -->
                     <div class="absolute w-16 h-16 md:w-20 md:h-20 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg border-4 border-white z-0">
                         <span class="font-black text-blue-900 text-base md:text-lg tracking-tighter">IKEA</span>
                     </div>
-                    <!-- 轨道圈 (改用精准的绝对定位居中和百分比宽高，拉开间距) -->
                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-dashed border-blue-200" style="width: 36%; height: 36%;"></div>
                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-dashed border-purple-200" style="width: 56%; height: 56%;"></div>
                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-dashed border-orange-200" style="width: 76%; height: 76%;"></div>
                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-dashed border-teal-200" style="width: 96%; height: 96%;"></div>
                 </div>
 
-                <!-- 节点将通过 JavaScript 动态插入到这里 -->
                 <div id="nodes-layer" class="absolute inset-0"></div>
             </div>
 
-            <!-- 图例：增加了背景框和阴影，与图形更好地分离开 -->
             <div class="z-30 flex flex-wrap justify-center gap-3 md:gap-4 text-xs text-slate-600 bg-white/90 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-sm border border-slate-100 flex-shrink-0">
-                <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-blue-500 mr-2 shadow-sm"></span>核心层</div>
-                <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-purple-500 mr-2 shadow-sm"></span>经济/企业层</div>
-                <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-orange-500 mr-2 shadow-sm"></span>基础设施层</div>
-                <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-teal-500 mr-2 shadow-sm"></span>生态/未来层</div>
+                <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-blue-500 mr-2 shadow-sm"></span>Core Level</div>
+                <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-purple-500 mr-2 shadow-sm"></span>Economy/Enterprise</div>
+                <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-orange-500 mr-2 shadow-sm"></span>Infrastructure</div>
+                <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-teal-500 mr-2 shadow-sm"></span>Ecology/Future</div>
             </div>
         </div>
 
-        <!-- 右侧区域：详情面板 (Detail Panel) -->
         <div class="w-full md:w-2/5 h-[45vh] md:h-full bg-slate-50 p-6 md:p-8 overflow-y-auto no-scrollbar shadow-inner" id="detail-panel">
-            <!-- 详情内容将通过 JavaScript 动态插入到这里 -->
-        </div>
+            </div>
 
     </div>
 
     <script>
-        // 1. 数据准备 (Data Preparation)
-        // 【重要修改】重新分配了所有的 angle (角度)，确保它们交错分布，绝不在一条直线上重叠
+        // 1. Data Preparation
         const STAKEHOLDERS = [
-            // 第一层：核心层
+            // Ring 1: Core
             {
-                id: 'ikea', name: 'IKEA 公司系统', shortName: 'IKEA 公司', category: '核心利益相关者',
+                id: 'ikea', name: 'IKEA Corporate System', shortName: 'IKEA Corp', category: 'Core Stakeholder',
                 color: 'bg-blue-500', ring: 1, angle: -45, icon: 'building-2',
-                benefit: ['提高公司收入', '提升 ESG（环境社会治理）评分', '增强品牌环保形象', '增加客户忠诚度', '创造新的二手销售收入来源'],
-                risk: ['被指控为“漂绿”（Greenwashing）', '实际生产量可能未减少', '优先关注利润而非真正减少资源消耗'],
-                ethics: ['利润与可持续发展的冲突', '弱循环经济（Weak circularity）']
+                benefit: ['Increase corporate revenue', 'Improve ESG (Environmental, Social, and Governance) score', 'Enhance eco-friendly brand image', 'Increase customer loyalty', 'Create new revenue stream from second-hand sales'],
+                risk: ['Accusations of "Greenwashing"', 'Actual production volume might not decrease', 'Prioritizing profit over genuine resource reduction'],
+                ethics: ['Conflict between profit and sustainability', 'Weak circularity']
             },
             {
-                id: 'part_consumer', name: '参与回收的消费者', shortName: '参与消费者', category: '核心利益相关者',
+                id: 'part_consumer', name: 'Participating Consumers', shortName: 'Participants', category: 'Core Stakeholder',
                 color: 'bg-blue-400', ring: 1, angle: 45, icon: 'users',
-                benefit: ['获得 IKEA 代金券', '降低家具处理成本', '参与环保行为', '获得“环保消费者”的身份认同'],
-                risk: ['必须自行运输家具到 IKEA', '必须完整组装家具', '运输成本由消费者承担', '代金券限制消费自由', '激励消费者继续购买新家具'],
-                ethics: ['环境责任从企业转移到消费者（Burden shifting）', '反弹效应（Rebound effect）']
+                benefit: ['Receive IKEA vouchers', 'Lower furniture disposal costs', 'Engage in eco-friendly behavior', 'Gain identity as a "green consumer"'],
+                risk: ['Must transport furniture to IKEA themselves', 'Furniture must be fully assembled', 'Transportation costs borne by consumers', 'Vouchers restrict consumption freedom', 'Incentivizes further purchase of new furniture'],
+                ethics: ['Burden shifting (environmental responsibility shifted to consumers)', 'Rebound effect']
             },
             {
-                id: 'second_buyer', name: '二手家具购买者', shortName: '二手买家', category: '核心利益相关者',
+                id: 'second_buyer', name: 'Second-hand Furniture Buyers', shortName: '2nd-hand Buyers', category: 'Core Stakeholder',
                 color: 'bg-blue-300', ring: 1, angle: 135, icon: 'shopping-bag',
-                benefit: ['获得更低价格家具', '提高家具可获得性', '可参与循环经济'],
-                risk: ['产品质量不确定', '保修有限', '产品使用寿命较短'],
-                ethics: ['消费者保护不平等']
+                benefit: ['Access to lower-priced furniture', 'Improve furniture accessibility', 'Participate in circular economy'],
+                risk: ['Uncertain product quality', 'Limited warranty', 'Shorter product lifespan'],
+                ethics: ['Unequal consumer protection']
             },
             {
-                id: 'non_part_consumer', name: '未参与回收的消费者', shortName: '未参与者', category: '核心利益相关者',
+                id: 'non_part_consumer', name: 'Non-participating Consumers', shortName: 'Non-participants', category: 'Core Stakeholder',
                 color: 'bg-rose-500', highlight: true, ring: 1, angle: 225, icon: 'user-x',
-                desc: '包括：低收入人群、无车人群、农村地区人群、行动不便人群',
-                benefit: ['几乎没有直接利益'],
-                risk: ['被排除在循环经济体系之外', '必须自行承担家具处理成本'],
-                ethics: ['识别正义问题（Recognition justice）', '循环系统排斥弱势群体', '⚠️ 关键评分点']
+                desc: 'Includes: Low-income, carless, rural, and mobility-impaired demographics',
+                benefit: ['Almost no direct benefits'],
+                risk: ['Excluded from the circular economy system', 'Must bear furniture disposal costs themselves'],
+                ethics: ['Recognition justice issues', 'Circular system excludes vulnerable groups', '⚠️ Key grading point']
             },
-            // 第二层：企业与经济层
+            // Ring 2: Economy & Enterprise
             {
-                id: 'worker', name: 'IKEA 零售员工', shortName: '零售员工', category: '企业与经济相关',
+                id: 'worker', name: 'IKEA Retail Workers', shortName: 'Retail Workers', category: 'Economy / Enterprise',
                 color: 'bg-purple-500', ring: 2, angle: -105, icon: 'briefcase',
-                benefit: ['创造新的工作岗位', '提供新的技能机会'],
-                risk: ['工作量增加', '可能没有额外报酬'],
-                ethics: ['劳动公平问题']
+                benefit: ['Create new jobs', 'Provide new skill opportunities'],
+                risk: ['Increased workload', 'Potentially no extra compensation'],
+                ethics: ['Labor fairness issues']
             },
             {
-                id: 'supply', name: '家具供应链', shortName: '供应链', category: '企业与经济相关',
+                id: 'supply', name: 'Furniture Supply Chain', shortName: 'Supply Chain', category: 'Economy / Enterprise',
                 color: 'bg-purple-500', ring: 2, angle: 15, icon: 'factory',
-                desc: '包括：制造商、供应商、原材料供应商',
-                benefit: ['持续获得经济收入'],
-                risk: ['Buy Back 未减少生产需求', '资源开采仍持续'],
-                ethics: ['未真正减少资源开采', '弱循环经济']
+                desc: 'Includes: Manufacturers, suppliers, raw material providers',
+                benefit: ['Continuous economic revenue'],
+                risk: ['Buy Back does not reduce production demand', 'Resource extraction continues'],
+                ethics: ['No genuine reduction in resource extraction', 'Weak circularity']
             },
             {
-                id: 'global_south', name: '全球南方原材料社区', shortName: '资源社区', category: '企业与经济相关',
+                id: 'global_south', name: 'Global South Resource Communities', shortName: 'Global South', category: 'Economy / Enterprise',
                 color: 'bg-purple-500', ring: 2, angle: 165, icon: 'globe-2',
-                desc: '例如：木材采伐地区、发展中国家资源开采地区',
-                benefit: ['几乎没有直接利益'],
-                risk: ['环境破坏', '资源被持续开采', '社区承担环境成本'],
-                ethics: ['环境正义问题（Environmental justice）', '全球资源不平等']
+                desc: 'e.g., Timber harvesting areas, resource extraction regions in developing countries',
+                benefit: ['Almost no direct benefits'],
+                risk: ['Environmental destruction', 'Continuous resource extraction', 'Communities bear environmental costs'],
+                ethics: ['Environmental justice issues', 'Global resource inequality']
             },
-            // 第三层：基础设施层
+            // Ring 3: Infrastructure
             {
-                id: 'waste', name: '废弃物管理系统', shortName: '废弃物管理', category: '基础设施相关',
+                id: 'waste', name: 'Waste Management System', shortName: 'Waste Mgmt', category: 'Infrastructure',
                 color: 'bg-orange-500', ring: 3, angle: 90, icon: 'trash-2',
-                desc: '包括：垃圾填埋场、回收系统',
-                benefit: ['潜在减少废弃家具数量'],
-                risk: ['IKEA 将部分责任转移给公共系统'],
-                ethics: ['企业责任外部化（Externalization of responsibility）']
+                desc: 'Includes: Landfills, recycling systems',
+                benefit: ['Potential reduction in discarded furniture'],
+                risk: ['IKEA transfers part of the responsibility to public systems'],
+                ethics: ['Externalization of responsibility']
             },
             {
-                id: 'logistics', name: '物流与运输系统', shortName: '物流运输', category: '基础设施相关',
+                id: 'logistics', name: 'Logistics & Transportation', shortName: 'Logistics', category: 'Infrastructure',
                 color: 'bg-orange-500', ring: 3, angle: 285, icon: 'truck',
-                desc: '包括：运输系统、配送系统',
-                benefit: ['无明显直接利益'],
-                risk: ['增加运输碳排放', '增加环境负担'],
-                ethics: ['碳排放责任转移']
+                desc: 'Includes: Transport and delivery systems',
+                benefit: ['No obvious direct benefits'],
+                risk: ['Increased transport carbon emissions', 'Increased environmental burden'],
+                ethics: ['Transfer of carbon emission responsibility']
             },
-            // 第四层：生态与未来层
+            // Ring 4: Ecology & Future
             {
-                id: 'nature', name: '自然环境', shortName: '自然环境', category: '生态利益相关者',
+                id: 'nature', name: 'Natural Environment', shortName: 'Environment', category: 'Ecology',
                 color: 'bg-teal-500', ring: 4, angle: 195, icon: 'leaf',
-                desc: '包括：森林资源、生物多样性、生态系统',
-                benefit: ['潜在减少废弃物'],
-                risk: ['原材料开采仍持续', '总生产量未减少'],
-                ethics: ['未真正减少环境影响']
+                desc: 'Includes: Forests, biodiversity, ecosystems',
+                benefit: ['Potential reduction in waste'],
+                risk: ['Raw material extraction continues', 'Total production volume unreduced'],
+                ethics: ['No genuine reduction in environmental impact']
             },
             {
-                id: 'future', name: '未来世代', shortName: '未来世代', category: '未来利益相关者',
+                id: 'future', name: 'Future Generations', shortName: 'Future Gens', category: 'Future Stakeholders',
                 color: 'bg-cyan-500', ring: 4, angle: -15, icon: 'baby',
-                benefit: ['潜在减少废弃物'],
-                risk: ['持续资源消耗', '长期环境损害'],
-                ethics: ['代际不公平（Intergenerational injustice）']
+                benefit: ['Potential reduction in waste'],
+                risk: ['Continuous resource consumption', 'Long-term environmental damage'],
+                ethics: ['Intergenerational injustice']
             }
         ];
 
-        // 2. 布局算法 (Layout Math)
-        // 扩大了每层的间距，分别对应虚线圈的 36%, 56%, 76%, 96%
+        // 2. Layout Math
         const RING_RADII = { 1: 18, 2: 28, 3: 38, 4: 48 };
 
         function getPosition(ring, angleDegrees) {
             const radius = RING_RADII[ring];
-            // 调整角度使 -90 度在正上方
+            // Adjust angle so -90 degrees is top center
             const angleRad = (angleDegrees - 90) * (Math.PI / 180); 
             const x = 50 + radius * Math.cos(angleRad);
             const y = 50 + radius * Math.sin(angleRad);
             return { left: `${x}%`, top: `${y}%` };
         }
 
-        // 3. 核心逻辑与渲染 (Core Logic)
-        let activeId = 'non_part_consumer'; // 默认选中"未参与者"（老师评分关键）
+        // 3. Core Logic
+        let activeId = 'non_part_consumer'; // Default selection 
 
         function initMap() {
             const nodesLayer = document.getElementById('nodes-layer');
@@ -198,36 +183,32 @@
                 const pos = getPosition(node.ring, node.angle);
                 const isSelected = activeId === node.id;
                 
-                // 动态构建节点的 HTML
+                // Construct Node HTML
                 const nodeEl = document.createElement('div');
                 nodeEl.className = 'absolute flex flex-col items-center justify-center transform -translate-x-1/2 -translate-y-1/2 group cursor-pointer z-20';
                 nodeEl.style.left = pos.left;
                 nodeEl.style.top = pos.top;
                 nodeEl.onclick = () => selectNode(node.id);
 
-                // 圆圈容器样式：调整了适合装下文字且不会互相碰撞的安全尺寸
                 let circleClasses = `relative w-[56px] h-[56px] md:w-[68px] md:h-[68px] rounded-full flex flex-col items-center justify-center shadow-md node-transition ${node.color} text-white px-1 `;
                 
                 if (isSelected) {
                     circleClasses += 'ring-4 ring-offset-2 ring-slate-400 scale-110 shadow-xl z-30';
                 } else {
                     circleClasses += 'hover:scale-110 hover:z-30';
-                    // 高亮未参与者
                     if (node.highlight) circleClasses += ' animate-pulse ring-4 ring-rose-200';
                 }
 
-                // 统一放入圆圈内，调整字体更精致
                 nodeEl.innerHTML = `
                     <div class="${circleClasses}">
                         <i data-lucide="${node.icon}" class="${isSelected ? 'w-5 h-5 md:w-6 md:h-6 mb-0.5' : 'w-4 h-4 md:w-5 md:h-5 mb-0.5'}"></i>
-                        <span class="text-[9px] md:text-[11px] font-bold leading-tight text-center tracking-tight" style="line-height: 1.1;">${node.shortName}</span>
+                        <span class="text-[9px] md:text-[10px] font-bold leading-tight text-center tracking-tight" style="line-height: 1.1;">${node.shortName}</span>
                     </div>
                 `;
                 
                 nodesLayer.appendChild(nodeEl);
             });
 
-            // 重新渲染图标
             lucide.createIcons();
         }
 
@@ -237,7 +218,6 @@
 
             if (!data) return;
 
-            // 生成列表的辅助函数
             const generateList = (items, iconColorClass) => {
                 return items.map(item => `
                     <li class="flex items-start text-sm md:text-base text-slate-600 mb-2">
@@ -249,7 +229,6 @@
 
             const htmlContent = `
                 <div class="space-y-6 animate-fade-in pb-10">
-                    <!-- 标题区 -->
                     <div class="border-b border-slate-200 pb-4">
                         <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold text-white mb-3 shadow-sm ${data.color}">
                             ${data.category}
@@ -263,28 +242,24 @@
                         ${data.desc ? `<p class="text-slate-500 mt-3 text-sm bg-slate-100 p-3 rounded-lg border border-slate-200">${data.desc}</p>` : ''}
                     </div>
 
-                    <!-- 详情卡片区 -->
                     <div class="space-y-4">
-                        <!-- 利益 -->
                         <div class="bg-white p-5 md:p-6 rounded-xl border-l-4 border-l-green-500 shadow-sm hover:shadow-md transition-shadow">
                             <div class="flex items-center text-green-700 font-bold mb-4 text-lg">
-                                <i data-lucide="plus-circle" class="mr-2 w-5 h-5"></i> 利益 (Benefit)
+                                <i data-lucide="plus-circle" class="mr-2 w-5 h-5"></i> Benefit
                             </div>
                             <ul>${generateList(data.benefit, 'text-green-500')}</ul>
                         </div>
 
-                        <!-- 风险 -->
                         <div class="bg-white p-5 md:p-6 rounded-xl border-l-4 border-l-rose-500 shadow-sm hover:shadow-md transition-shadow">
                             <div class="flex items-center text-rose-600 font-bold mb-4 text-lg">
-                                <i data-lucide="alert-triangle" class="mr-2 w-5 h-5"></i> 风险 / 伤害 (Risk / Harm)
+                                <i data-lucide="alert-triangle" class="mr-2 w-5 h-5"></i> Risk / Harm
                             </div>
                             <ul>${generateList(data.risk, 'text-rose-400')}</ul>
                         </div>
 
-                        <!-- 伦理 -->
                         <div class="bg-white p-5 md:p-6 rounded-xl border-l-4 border-l-purple-500 shadow-sm hover:shadow-md transition-shadow">
                             <div class="flex items-center text-purple-700 font-bold mb-4 text-lg">
-                                <i data-lucide="scale" class="mr-2 w-5 h-5"></i> 伦理问题 (Ethical Issue)
+                                <i data-lucide="scale" class="mr-2 w-5 h-5"></i> Ethical Issue
                             </div>
                             <ul>${generateList(data.ethics, 'text-purple-500')}</ul>
                         </div>
@@ -292,26 +267,22 @@
                 </div>
             `;
 
-            // 更新 DOM
             panel.innerHTML = htmlContent;
-            
-            // 重新渲染新插入的 Lucide 图标
             lucide.createIcons();
         }
 
-        // 切换选中的节点
         function selectNode(id) {
             activeId = id;
-            initMap(); // 刷新左侧地图状态
-            renderDetailPanel(); // 刷新右侧数据
+            initMap(); 
+            renderDetailPanel(); 
             
-            // 在移动端点击后，平滑滚动到详情面板
+            // Smooth scroll for mobile views
             if(window.innerWidth < 768) {
                 document.getElementById('detail-panel').scrollIntoView({ behavior: 'smooth' });
             }
         }
 
-        // 页面加载完成后初始化
+        // Initialize on load
         document.addEventListener('DOMContentLoaded', () => {
             initMap();
             renderDetailPanel();
